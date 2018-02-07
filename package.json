@@ -6,7 +6,7 @@
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "npm run lint && ntape test/*.js | tap-spec",
+    "test": "npm run lint && tape test/*.js | tap-spec",
     "lint": "eslint test/*.js index.js",
     "prepare": "nsp check",
     "coverage": "nyc tape test/*.js",
