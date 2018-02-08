@@ -85,12 +85,14 @@ function wait (timeout) {
 
 async function waitForDeployment (client, config, count) {
   count = count || 0;
-  while (count++ < 20) {
+  while (count++ < 50) {
     const data = await client.deploymentconfigs.find(config.deploymentName);
     if (data.status.availableReplicas > 0) {
+      console.log('');
       return applyResources(config);
     } else {
-      await wait(count * 100);
+      process.stdout.write('.');
+      await wait(count * 40);
     }
   }
   throw new Error('Service unavailable');
