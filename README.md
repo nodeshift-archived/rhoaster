@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bucharest-gold/rhoaster.svg?branch=master)](https://travis-ci.org/bucharest-gold/rhoaster)
+
 # rhoaster
 
 A module to help with Node.js OpenShift integration tests.
