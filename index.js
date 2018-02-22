@@ -14,12 +14,14 @@ const path = require('path');
  * @param {boolean} options.strictSSL - set to true if a self-signed security certificate is not OK. Default: false
  * @param {boolean} options.forceDeploy - set to true if you would like rhoaster to create a new deployment configuration
  *                  for this application, even if one with options.deploymentName already exists
+ * @param {boolean} options.removeAll - set to false if you would like rhoaster to not delete builds and imagestreams. Default: true
  */
 function rhoaster (options) {
   const opts = Object.assign({
     projectLocation: process.cwd(),
     deploymentName: path.basename(process.cwd()),
-    strictSSL: false
+    strictSSL: false,
+    removeAll: true
   }, options);
   return {
     deploy: deploy(opts),
@@ -50,9 +52,9 @@ function deploy (options) {
   };
 }
 
-function undeploy ({ projectLocation, strictSSL }) {
+function undeploy ({ projectLocation, strictSSL, removeAll }) {
   return async () =>
-    nodeshift.undeploy({ projectLocation, strictSSL });
+    nodeshift.undeploy({ projectLocation, strictSSL, removeAll });
 }
 
 function build ({ projectLocation, strictSSL }) {
