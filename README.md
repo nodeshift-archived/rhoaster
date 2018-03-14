@@ -2,6 +2,8 @@
 
 # rhoaster
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/rhoaster.svg)](https://greenkeeper.io/)
+
 A module to help with Node.js OpenShift integration tests.
 
 ## Usage
