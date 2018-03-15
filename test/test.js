@@ -15,11 +15,24 @@ test('Instance creation', t => {
 });
 
 test('Default options', t => {
-  t.plan(4);
+  t.plan(5);
   const testEnv = rhoaster();
   t.strictEqual(testEnv.opts.deploymentName, 'rhoaster', 'deploymentName');
   t.strictEqual(path.basename(testEnv.opts.projectLocation), 'rhoaster', 'projectLocation');
   t.false(testEnv.opts.forceDeploy, 'forceDeploy');
   t.false(testEnv.opts.strictSSL, 'strictSSL');
+  t.true(testEnv.opts.removeAll, 'removeAll');
+  t.end();
+});
+
+test('dockerImage and nodeVersion options', t => {
+  t.plan(2);
+  const options = {
+    dockerImage: 'registry.access.redhat.com/rhoar-nodejs/nodejs-8',
+    nodeVersion: '8.x'
+  };
+  const testEnv = rhoaster(options);
+  t.strictEqual(testEnv.opts.dockerImage, options.dockerImage, 'dockerImage');
+  t.strictEqual(testEnv.opts.nodeVersion, options.nodeVersion, 'nodeVersion');
   t.end();
 });

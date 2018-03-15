@@ -57,9 +57,9 @@ function undeploy ({ projectLocation, strictSSL, removeAll }) {
     nodeshift.undeploy({ projectLocation, strictSSL, removeAll });
 }
 
-function build ({ projectLocation, strictSSL }) {
+function build ({ projectLocation, strictSSL, dockerImage, nodeVersion }) {
   return async () =>
-    nodeshift.build({ projectLocation, strictSSL });
+    nodeshift.build({ projectLocation, strictSSL, dockerImage, nodeVersion });
 }
 
 function applyResources ({ projectLocation, strictSSL }) {
@@ -69,8 +69,8 @@ function applyResources ({ projectLocation, strictSSL }) {
     .catch(console.error);
 }
 
-function runDeploy ({ projectLocation, strictSSL }) {
-  return nodeshift.deploy({ projectLocation, strictSSL })
+function runDeploy ({ projectLocation, strictSSL, dockerImage, nodeVersion }) {
+  return nodeshift.deploy({ projectLocation, strictSSL, dockerImage, nodeVersion })
     .then(getRoute)
     .catch(console.error);
 }
