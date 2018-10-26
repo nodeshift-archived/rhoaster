@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/bucharest-gold/rhoaster.svg?branch=master)](https://travis-ci.org/bucharest-gold/rhoaster) [![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/rhoaster.svg)](https://greenkeeper.io/) [![Coverage Status](https://coveralls.io/repos/github/bucharest-gold/rhoaster/badge.svg?branch=master)](https://coveralls.io/github/bucharest-gold/rhoaster?branch=master)
+[![Build Status](https://travis-ci.org/nodeshift/rhoaster.svg?branch=master)](https://travis-ci.org/nodeshift/rhoaster) [![Greenkeeper badge](https://badges.greenkeeper.io/nodeshift/rhoaster.svg)](https://greenkeeper.io/) [![Coverage Status](https://coveralls.io/repos/github/nodeshift/rhoaster/badge.svg?branch=master)](https://coveralls.io/github/nodeshift/rhoaster?branch=master)
 
 # rhoaster
 
