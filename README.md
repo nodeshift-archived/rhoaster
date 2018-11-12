@@ -24,7 +24,7 @@ const request = require('supertest');
 const rhoaster = require('rhoaster');
 
 const testEnvironment = rhoaster({
-  deploymentName: 'nodejs-circuit-breaker-name'
+  deploymentName: 'my-nodejs-service'
 });
 
 testEnvironment.deploy()
