@@ -37,7 +37,7 @@ function deploy (options) {
     if (config.forceDeploy) {
       return runDeploy(config);
     }
-    return openshift({config, request: { strictSSL: options.strictSSL }}).then(client => {
+    return openshift({ config, request: { strictSSL: options.strictSSL } }).then(client => {
       return client.deploymentconfigs.find(config.deploymentName)
         .then(result => {
           if (result.code === 404) throw new Error(result.reason);
