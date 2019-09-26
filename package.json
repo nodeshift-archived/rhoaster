@@ -31,23 +31,23 @@
   "homepage": "https://github.com/nodeshift/rhoaster",
   "devDependencies": {
     "coveralls": "^3.0.4",
-    "eslint": "^5.16.0",
-    "eslint-config-semistandard": "^13.0.0",
-    "eslint-config-standard": "^12.0.0",
+    "eslint": "^6.4.0",
+    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "https-proxy-agent": "~2.2.1",
+    "https-proxy-agent": "~2.2.2",
     "nyc": "^14.1.1",
-    "sshpk": "~1.15.0",
-    "standard-version": "^4.4.0",
+    "sshpk": "~1.16.1",
+    "standard-version": "^7.0.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.10.2"
+    "tape": "^4.11.0"
   },
   "dependencies": {
-    "nodeshift": "~3.0.1",
+    "nodeshift": "~3.1.1",
     "openshift-config-loader": "~0.4.0",
-    "openshift-rest-client": "~2.2.0"
+    "openshift-rest-client": "~2.2.2"
   }
 }
