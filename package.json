@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "nodeshift": "~3.1.1",
-    "openshift-config-loader": "~0.4.0",
     "openshift-rest-client": "~2.3.0"
   }
 }

@@ -1,7 +1,6 @@
 'use strict';
 
-const configLoader = require('openshift-config-loader');
-const openshift = require('openshift-rest-client');
+const { OpenshiftClient: restClient, config: k8sConfig } = require('openshift-rest-client');
 const nodeshift = require('nodeshift');
 const path = require('path');
 
@@ -33,21 +32,19 @@ function rhoaster (options) {
 
 function deploy (options) {
   return async () => {
-    const config = Object.assign(await configLoader(options), options);
+    const config = Object.assign(k8sConfig.fromKubeconfig(options.config), options);
     if (config.forceDeploy) {
       return runDeploy(config);
     }
-    return openshift({ config, request: { strictSSL: options.strictSSL } }).then(client => {
-      return client.deploymentconfigs.find(config.deploymentName)
-        .then(result => {
-          if (result.code === 404) throw new Error(result.reason);
-          console.log(`Deployment ${config.deploymentName} already exists. To force redeployment provide options.forceDeploy=true.`);
-          return applyResources(config);
-        })
-        .catch(_ => {
-          console.log('No deployment found. Deploying...');
-          return runDeploy(config).then(_ => waitForDeployment(client, config));
-        });
+    return restClient({ config }).then(async (client) => {
+      const result = await awaitRequest(client.apis['apps.openshift.io'].v1.ns(config.namespace).deploymentconfigs(config.deploymentName).get());
+      if (result.code === 404) {
+        console.log('No deployment found. Deploying...');
+        return runDeploy(config).then(_ => waitForDeployment(client, config));
+      }
+
+      console.log(`Deployment ${config.deploymentName} already exists. To force redeployment provide options.forceDeploy=true.`);
+      return applyResources(config);
     });
   };
 }
@@ -76,7 +73,7 @@ function runDeploy ({ projectLocation, strictSSL, dockerImage, nodeVersion }) {
 }
 
 function getRoute (output) {
-  return `http://${output.appliedResources.find(val => val.kind === 'Route').spec.host}`;
+  return `http://${output.appliedResources.find(val => val.body.kind === 'Route').body.spec.host}`;
 }
 
 function wait (timeout) {
@@ -85,11 +82,24 @@ function wait (timeout) {
   });
 }
 
+async function awaitRequest (promise) {
+  let result;
+  try {
+    result = await promise;
+  } catch (err) {
+    if (err.code !== 404) {
+      return Promise.reject(err);
+    }
+    result = err;
+  }
+  return result;
+}
+
 async function waitForDeployment (client, config, count) {
   count = count || 0;
   while (count++ < 50) {
-    const data = await client.deploymentconfigs.find(config.deploymentName);
-    if (data.status.availableReplicas > 0) {
+    const data = await awaitRequest(client.apis['apps.openshift.io'].v1.ns(config.namespace).deploymentconfigs(config.deploymentName).get());
+    if (data.body.status.availableReplicas > 0) {
       console.log('');
       return applyResources(config);
     } else {
