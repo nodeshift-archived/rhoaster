@@ -1,8 +1,10 @@
 language: node_js
 
 node_js:
-  - lts/* 
+  - lts/*
   - 10
+
+install: npm install
 
 script:
    - npm run ci
