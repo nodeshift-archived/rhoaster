@@ -41,7 +41,7 @@
     "https-proxy-agent": "^2.2.3",
     "nyc": "^14.1.1",
     "sshpk": "~1.16.1",
-    "standard-version": "^7.0.0",
+    "standard-version": "^7.1.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
