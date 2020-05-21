@@ -20,9 +20,6 @@
     "url": "git://github.com/nodeshift/rhoaster.git"
   },
   "files": [
-    "package.json",
-    "README.md",
-    "LICENSE.txt",
     "index.js"
   ],
   "bugs": {
