@@ -40,7 +40,7 @@
     "sshpk": "~1.16.1",
     "standard-version": "^9.0.0",
     "tap-spec": "^5.0.0",
-    "tape": "^5.0.1"
+    "tape": "^5.1.0"
   },
   "dependencies": {
     "nodeshift": "~6.2.0",
