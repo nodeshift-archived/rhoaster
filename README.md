@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nodeshift/rhoaster.svg?branch=master)](https://travis-ci.org/nodeshift/rhoaster) [![Greenkeeper badge](https://badges.greenkeeper.io/nodeshift/rhoaster.svg)](https://greenkeeper.io/) [![Coverage Status](https://coveralls.io/repos/github/nodeshift/rhoaster/badge.svg?branch=master)](https://coveralls.io/github/nodeshift/rhoaster?branch=master)
+[![Build Status](https://travis-ci.org/nodeshift/rhoaster.svg?branch=main)](https://travis-ci.org/nodeshift/rhoaster) [![Greenkeeper badge](https://badges.greenkeeper.io/nodeshift/rhoaster.svg)](https://greenkeeper.io/) [![Coverage Status](https://coveralls.io/repos/github/nodeshift/rhoaster/badge.svg?branch=main)](https://coveralls.io/github/nodeshift/rhoaster?branch=main)
 
 # rhoaster
 
