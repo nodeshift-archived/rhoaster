@@ -9,10 +9,7 @@
     "test": "tape test/*.js | tap-spec",
     "pretest": "eslint --ignore-path .gitignore .",
     "coverage": "nyc tape test/*.js",
-    "coverage:html": "nyc npm test && nyc report --reporter=html",
-    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "docs": "./node_modules/.bin/jsdoc --verbose -d docs -t ./node_modules/ink-docstrap/template -R README.md index.js",
-    "ci": "npm run coveralls",
     "release": "standard-version",
     "prepare": "husky install"
   },
