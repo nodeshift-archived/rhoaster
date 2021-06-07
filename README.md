@@ -14,8 +14,7 @@ npm install --save-dev rhoaster
 ```
 
 In your test files, deploy and undeploy your application to whatever
-OpenShift instance you are logged into. This works with a local `minishift`
-cluster as well.
+OpenShift instance you are logged into. This works with a local [code-ready-containers](https://developers.redhat.com/products/codeready-containers/overview) installation as well.
 
 Here is an example usage with `tape` and `supertest`.
 
