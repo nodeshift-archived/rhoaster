@@ -44,7 +44,7 @@
     "tape": "^5.3.1"
   },
   "dependencies": {
-    "nodeshift": "~8.5.0",
+    "nodeshift": "~8.6.0",
     "openshift-rest-client": "~6.1.0"
   }
 }
