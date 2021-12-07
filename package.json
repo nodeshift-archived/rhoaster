@@ -41,7 +41,7 @@
     "sshpk": "~1.16.1",
     "standard-version": "^9.3.2",
     "tap-spec": "^5.0.0",
-    "tape": "^5.3.1"
+    "tape": "^5.3.2"
   },
   "dependencies": {
     "nodeshift": "~8.6.0",
