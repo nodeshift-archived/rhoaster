@@ -35,7 +35,7 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
-    "https-proxy-agent": "^5.0.0",
+    "https-proxy-agent": "^5.0.1",
     "husky": "^6.0.0",
     "nyc": "^15.1.0",
     "sshpk": "~1.16.1",
