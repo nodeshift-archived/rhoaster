@@ -6,19 +6,21 @@ on:
     branches: [ main ]
 jobs:
   test:
-    name: Test
     uses: pkgjs/action/.github/workflows/node-test.yaml@v0.1
     with:
       runs-on: ubuntu-latest
       upgrade-policy: lts
       test-command: npm test
-      post-test-steps: |
-        - name: Validate support info
-          run: npx @pkgjs/support validate
-        - name: Coverage report
-          run: npm run coverage
-          run: node_modules/nyc/bin/nyc.js report --reporter=lcovonly
-        - name: Coveralls
-          uses: coverallsapp/github-action@master
-          with:
-            github-token: ${{ secrets.github_token }}
+  extra:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - run: npm run coverage
+    - run: npx @pkgjs/support validate
+    - run: node_modules/nyc/bin/nyc.js report --reporter=lcovonly
+    - name: Coveralls Parallel
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        flag-name: run-${{ matrix.node-version }}
+        parallel: true
