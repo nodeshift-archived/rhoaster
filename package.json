@@ -6,15 +6,14 @@
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "tape test/*.js | tap-spec",
+    "test": "nyc tape test/*.js report --reporter=lcovonly | tap-spec",
     "pretest": "eslint --ignore-path .gitignore .",
-    "coverage": "nyc tape test/*.js",
     "docs": "./node_modules/.bin/jsdoc --verbose -d docs -t ./node_modules/ink-docstrap/template -R README.md index.js",
     "release": "standard-version",
     "prepare": "husky install"
   },
   "engines": {
-    "node": "^16 || ^14 || ^12"
+    "node": "^18 || ^16 || ^14"
   },
   "repository": {
     "type": "git",
