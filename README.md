@@ -1,3 +1,5 @@
+### This module is Deprecated
+
 ![Node.js CI](https://github.com/nodeshift/rhoaster/workflows/Node.js%20CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/nodeshift/rhoaster/badge.svg?branch=main)](https://coveralls.io/github/nodeshift/rhoaster?branch=main)
 
